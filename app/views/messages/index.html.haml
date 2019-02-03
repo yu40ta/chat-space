@@ -13,10 +13,10 @@
             %ul.header__lists
               %li.list
                 %a{href: '/'}
-                  %i.fa.icon= fa_icon 'pencil-square-o'
+                  %fa.icon= fa_icon 'pencil-square-o'
               %li.list
                 %a{href: '/'}
-                  %i.fa.icon= fa_icon 'cog'
+                  %fa.icon= fa_icon 'cog'
           .groups
             = render partial: 'group'
 
@@ -41,7 +41,7 @@
               %input.form__message.js-content{ placeholder: 'type a message'}
                 .form__mask
                   %label.form__mask__image
-                    %i.fa.icon=fa_icon 'picture-o'
+                    %fa.icon=fa_icon 'picture-o'
                     %input.hidden.js-file{type: 'file', href: '/'}
                 %input.form__submit{type: 'submit', value: 'Send'}
 
