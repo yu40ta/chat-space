@@ -4,7 +4,7 @@
 
 .notification {
   background-color: $notification-background-color;
-  .notice {
+  &__notice {
     color: $color-base;
     text-align: center;
   }
@@ -23,13 +23,13 @@
       height: $header-height;
       line-height: 100px;
       padding: 0 20px;
-      .header__name {
+      &__name {
         display: inline-block;
         color: $color-base;
         font-size: 16px;
         font-weight: bold;
       }
-      .header__lists {
+      &__lists {
         display: inline-block;
         float: right;
         list-style: none;
@@ -56,15 +56,15 @@
       a {
         cursor: pointer;
       }
-        .group__name {
-          color: $color-base;
-          font-size: 15px;
-        }
-        .group__message {
-          color: $color-base;
-          font-size: 11px;
-          margin: 5px 0 0;
-        }
+      &__name {
+        color: $color-base;
+        font-size: 15px;
+      }
+      &__message {
+        color: $color-base;
+        font-size: 11px;
+        margin: 5px 0 0;
+      }
     }
   }
 
@@ -77,11 +77,11 @@
       padding: 0 40px;
       .left-header {
       float: left;
-        .left-header__title {
+        &__title {
           font-size: 20px;
           margin-top: 35px;
         }
-        .left-header__members {
+        &__members {
           display: flex;
           list-style: none;
           font-size: 12px;
@@ -102,7 +102,7 @@
         margin-top: 28px;
         padding: 0 20px;
 
-        .right-header__button {
+        &__button {
           color: $right-header-color;
           text-decoration: none;
           cursor: pointer;
@@ -118,28 +118,28 @@
       overflow: scroll;
       .message {
         margin-bottom: 40px;
-      }
         .upper-message {
           display: flex;
-        }
-          .upper-message__user-name {
+          &__user-name {
             color: $upper-message__user-name-color;
             font-size: 16px;
             font-weight: bold;
           }
-          .upper-message__date {
+          &__date {
             color: $upper-message__user-date-color;
             font-size: 12px;
             padding-left: 10px;
           }
+        }
         .lower-message {
           margin-top: 10px;
-        }
-          .lower-message__content {
+          &__content {
             object-fit: contain;
             width: 200px;
             font-size: 14px;
           }
+        }
+      }
     }
 
     .form {
@@ -147,29 +147,29 @@
       background-color: $form-background-color;
       height: $form-height;
       padding: 20px 50px 20px 40px;
-      .form__message {
+      &__message {
         @include message-form-templete;
         box-sizing: border-box;
         width: calc(100% - 150px);
         padding: 0 10px;
         border: none;
       }
-      .form__mask {
+      &__mask {
         @include message-form-templete;
         background-color: $color-base;
         padding-right: 10px;
       }
-        .form__mask__image {
-          font-size: 20px;
-          line-height: 50px;
-        }
-            .fa {
-              display: inline-block;
-            }
-            .hidden {
-              display: none;
-            }
-      .form__submit {
+      &__mask__image {
+        font-size: 20px;
+        line-height: 50px;
+      }
+          .fa {
+            display: inline-block;
+          }
+          .hidden {
+            display: none;
+          }
+      &__submit {
         background-color: $send-button-color;
         color: $color-base;
         float: right;
