@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %body
+      .notification
+        .notification__notice<
+          チャットグループが作成されました。
+      .wrapper
+        .side-bar
+          .header
+            %h3.header__name<
+              test-name おおた
+            %ul.header__lists
+              %li.list
+                %a{href: '/'}
+                  %fa.icon= fa_icon 'pencil-square-o'
+              %li.list
+                %a{href: '/'}
+                  %fa.icon= fa_icon 'cog'
+          .groups
+            = render partial: 'group'
+
+        .chat
+          .header
+            .left-header
+              .left-header__title<
+                test-title
+              %ul.left-header__members<
+                Member：
+                %li.member<
+                  test-member よしだ, おおた
+            .right-header
+              %a.right-header__button{href: '/'}<
+                Edit
+          .messages.js-messages
+            .message
+              = render partial: 'message'
+
+          .form
+            %form.js-form
+              %input.form__message.js-content{ placeholder: 'type a message'}
+                .form__mask
+                  %label.form__mask__image
+                    %fa.icon=fa_icon 'picture-o'
+                    %input.hidden.js-file{type: 'file', href: '/'}
+                %input.form__submit{type: 'submit', value: 'Send'}
+
+      = yield
