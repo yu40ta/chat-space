@@ -2,20 +2,17 @@
 %html
   %head
     %body
-      .notification
-        .notification__notice<
-          チャットグループが作成されました。
       .wrapper
         .side-bar
           .header
-            %h3.header__name<
-              test-name おおた
+            %h3.header__name
+              = current_user.name
             %ul.header__lists
               %li.list
-                %a{href: '/'}
+                = link_to do
                   %fa.icon= fa_icon 'pencil-square-o'
               %li.list
-                %a{href: '/'}
+                = link_to edit_user_path(current_user) do
                   %fa.icon= fa_icon 'cog'
           .groups
             = render partial: 'group'
