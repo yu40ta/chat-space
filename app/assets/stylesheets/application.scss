@@ -1,10 +1,18 @@
 @import "./reset";
 @import "./variable";
 @import " font-awesome ";
+@import "./config/colors";
+@import "./config/size";
+@import "./config/user";
 
 .notification {
-  background-color: $notification-background-color;
   &__notice {
+    background-color: $notice-background-color;
+    color: $color-base;
+    text-align: center;
+  }
+  &__alert {
+    background-color: $alert-background-color;
     color: $color-base;
     text-align: center;
   }

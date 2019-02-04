@@ -1,28 +1,5 @@
 @import "./reset";
 
-// 以下、変数を定義
-
-//color
-$color-base: #FFFFFF;
-$notification-background-color: #38AEF0;
-$side-bar-header-background-color: #253141;
-$side-bar-groups-background-color: #2f3e51;
-$right-header-color: #38AEF0;
-$messages-background-color: #FAFAFA;
-$upper-message__user-name-color: #434A54;
-$upper-message__user-date-color: #999999;
-$form-background-color: #DDDDDD;
-$send-button-color: #59ADEA;
-
-//height
-$height-base: 100vh;
-$header-height: 100px;
-$form-height: 90px;
-
-//width
-$width-base: 100vw;
-$side-bar-width: 300px;
-
 //mixin
 @mixin message-form-templete {
   float: left;
