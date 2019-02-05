@@ -3,20 +3,6 @@
   %head
     %body
       .wrapper
-        .side-bar
-          .header
-            %h3.header__name
-              = current_user.name
-            %ul.header__lists
-              %li.list
-                = link_to new_group_path do
-                  %fa.icon= fa_icon 'pencil-square-o'
-              %li.list
-                = link_to edit_user_path(current_user) do
-                  %fa.icon= fa_icon 'cog'
-          .groups
-            = render partial: 'group'
-
         .chat
           .header
             .left-header
