@@ -1,15 +1,15 @@
 $(function() {
-  $('.form').on('submit', function(e) {
+  $('.form__message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var href = window.location.href
     $.ajax({
+      url: href,
       type: "POST",
-      url: url,
       data: formData,
-      datatype: "json",
+      dataType: "json",
       processData: false,
       contentType: false
-    });
-  });
+    })
+  })
 });
