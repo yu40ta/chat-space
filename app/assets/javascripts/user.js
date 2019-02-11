@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',function(){
   var search_list = $('#user-search-result');
 
-  function appendUser(user){
+  function appendUserName(user){
     var html = `<div class='chat-group-user clearfix'>
                   <p class='chat-group-user__name'>
                     ${user.name}</p>
@@ -9,7 +9,7 @@ $(document).on('turbolinks:load',function(){
                 </div>`
     search_list.append(html);
   }
-  function appendNoUser(user) {
+  function appendNoUserName(user) {
     var html = `<div class='chat-group-form__search.clearfix'>${ user }</div>`
     search_list.append(html);
   }
@@ -37,11 +37,11 @@ $(document).on('turbolinks:load',function(){
       $('#user-search-result').empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
-          appendUser(user);
+          appendUserName(user);
         });
       }
       else {
-        appendNoUser('一致するユーザーがいません');
+        appendNoUserName('一致するユーザーがいません');
       }
     })
     .fail(function() {
