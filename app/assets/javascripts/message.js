@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load',function(){
-  function buildHTML(message){
+  function buildSendMessageHTML(message){
   var image = `${message.image}` != 'null' ?
   `<img src='${message.image}'>` : ``
   var html  = `<div class='message'>
@@ -35,8 +35,8 @@ $(document).on('turbolinks:load',function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(message){
+      var html = buildSendMessageHTML(message);
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
       $('.form__message').val('');
@@ -49,8 +49,8 @@ $(document).on('turbolinks:load',function(){
     })
   })
 
-  var interval = setInterval(update, 5000);
-  function update(){
+  var interval = setInterval(messageUpdate, 5000);
+  function messageUpdate(){
     if($('.messages')[0]){
       var message_id = $('.messages').last().data('id');
     }
@@ -63,11 +63,11 @@ $(document).on('turbolinks:load',function(){
       data: { id: message_id },
       dataType: 'json'
     })
-    .done(function(data){
+    .done(function(new_message){
       console.count(setInterval);
-      console.log(data);
-      data.forEach(function(message){
-        var html = buildHTML(message);
+      console.log(new_message);
+      new_message.forEach(function(message){
+        var html = buildSendMessageHTML(message);
         $('.messages').append(html);
       })
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
