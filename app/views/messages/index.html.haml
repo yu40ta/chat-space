@@ -7,9 +7,10 @@
           = @group.group_name
         %ul.left-header__members<
           Member：
-          %li.member<
-            - @group.members.each do |member|
+          - @group.members.each do |member|
+            %li.member
               = member.user.name
+
       .right-header
         %a.right-header__button
         = link_to edit_group_path(@group.id) do
