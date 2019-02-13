@@ -47,33 +47,35 @@ $(document).on('turbolinks:load',function(){
       alert('エラー：メッセージを入力してください');
       $('.form__submit').prop('disabled', false);
     })
-  })
+  });
 
-  var interval = setInterval(messageUpdate, 5000);
+  setInterval(messageUpdate, 5000);
+
   function messageUpdate(){
-    if($('.messages')[0]){
-      var message_id = $('.messages').last().data('id');
-    }
-    else {
-      var message_id = 0
-    }
-    $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: { id: message_id },
-      dataType: 'json'
-    })
-    .done(function(new_message){
-      console.count(setInterval);
-      console.log(new_message);
-      new_message.forEach(function(message){
-        var html = buildSendMessageHTML(message);
-        $('.messages').append(html);
+    if (location.href.match(/\/groups\/\d+\/messages/)) {
+      if($('.messages')[0]){
+        var message_id = $('.messages').last().data('id');
+      } else {
+        var message_id = 0
+      }
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: { id: message_id },
+        dataType: 'json'
       })
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
-    })
-    .fail(function() {
-      alert('自動更新に失敗しました');
-    });
+      .done(function(new_message){
+        console.count(setInterval);
+        console.log(new_message);
+        new_message.forEach(function(message){
+          var html = buildSendMessageHTML(message);
+          $('.messages').append(html);
+        })
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+      })
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      });
+    }
   }
 });
