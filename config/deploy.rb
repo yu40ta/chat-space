@@ -19,6 +19,7 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
+    Rake::Task['unicorn:restart'].reenable
     invoke 'unicorn:restart'
   end
 end
